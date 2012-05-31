@@ -44,7 +44,8 @@ else {
        { name: 'test', main: 'index', lib: '.' },
        { name: 'gclitest', main: 'index', lib: '.' },
        { name: 'demo', main: 'index', lib: '.' },
-       { name: 'server', main: 'index', lib: '.' }
+       { name: 'server', main: 'index', lib: '.' },
+       { name: 'cypher', main: 'index', lib: '.' },
      ]
    }
   });
@@ -61,6 +62,7 @@ require('./lib/server/commands/firefox').startup();
 require('./lib/server/commands/make').startup();
 require('./lib/server/commands/standard').startup();
 require('./lib/server/commands/test').startup();
+require('./lib/server/commands/neo').startup();
 
 // Load the commands defined in CommonJS modules
 var help = exports.require('gcli/commands/help');
