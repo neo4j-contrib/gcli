@@ -17,12 +17,43 @@
       width: 100%;
     }
   </style>
+  <style type="text/css">
+      @import "lib/jquery/demo_table.css";
+    </style>
 </head>
 
 <body>
 
-  <div id="gcli-display"></div>
+  <script type="text/javascript" src="lib/jquery/complete.min.js"></script>
+  <script type="text/javascript" src="lib/jquery/jquery.dataTables.min.js"></script>
+  
 
+<script type="text/javascript">
+      function fnFeaturesInit ()
+      {
+        /* Not particularly modular this - but does nicely :-) */
+        $('ul.limit_length>li').each( function(i) {
+          if ( i > 10 ) {
+            this.style.display = 'none';
+          }
+        } );
+        
+        $('ul.limit_length').append( '<li class="css_link">Show more<\/li>' );
+        $('ul.limit_length li.css_link').click( function () {
+          $('ul.limit_length li').each( function(i) {
+            if ( i > 5 ) {
+              this.style.display = 'list-item';
+            }
+          } );
+          $('ul.limit_length li.css_link').css( 'display', 'none' );
+        } );
+      }
+      
+      $(document).ready( function() {
+        fnFeaturesInit(); 
+      } );
+    </script>
+  <div id="gcli-display"></div>
   <input id="gcli-input" type="text" autofocus/>
 
   <script type="text/javascript" src="scripts/es5-shim.js"></script>
@@ -51,5 +82,5 @@
     });
   </script>
 
-</body>
+<body/>
 </html>
